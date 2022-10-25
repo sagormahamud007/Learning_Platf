@@ -4,7 +4,7 @@ import { router } from './components/pages/Home/Shere-routes/route/Route';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
