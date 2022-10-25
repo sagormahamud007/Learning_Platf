@@ -10,14 +10,13 @@ const Profile = () => {
     return (
         <div className='container mt-5 bg-light'>
             <div className='text-center'>
-                <img className='image w-25 h-25' src={user?.photoURL} alt="" />
+                <img className='images w-25 h-25' src={user?.photoURL} alt="" />
                 <h3>{user?.displayName}</h3>
             </div>
-            <div className=''>
-                <Form className='w-50 mx-auto'>
-
+            <div className='form-info'>
+                <Form className='mx-auto'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
+                        <Form.Label>Email</Form.Label>
                         <Form.Control readOnly defaultValue={user?.email} type="email" placeholder="Enter email" />
                     </Form.Group>
 
