@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Image } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -6,16 +7,30 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 import logo from '../image/logo.jpg'
 import './Header.css'
+import { FaUser } from 'react-icons/fa';
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+
+            })
+            .catch((error) => {
+
+            });
+    }
+
     return (
         <div>
             <Navbar bg="light" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="/"> <Link to='/'><img className='header' src={logo} alt="" /></Link> </Navbar.Brand>
+                    <Navbar> <Link to='/'><img className='header' src={logo} alt="" /></Link> </Navbar>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -44,15 +59,32 @@ const Header = () => {
                                 Link
                             </Nav.Link>
                         </Nav>
-                        <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Search</Button>
-                        </Form>
+
+                        <Link className='m-4' to='/profile'>
+                            {
+                                user?.photoURL ?
+
+                                    <Image style={{ height: '40px' }} roundedCircle
+                                        src={user?.photoURL}></Image>
+                                    : <FaUser></FaUser>
+                            }
+                        </Link>
+
+                        {user?.uid ?
+                            <>
+                                <span> {user?.displayName}</span>
+                                <Button onClick={handleSignOut} className='mx-3' variant="info">Log Out</Button>
+                            </>
+                            :
+                            <>
+                                <Link to='/login'> <Button className='px-4 me-3' variant="secondary">Log in</Button></Link>
+
+                                <Link to='/register'> <Button variant="dark">Register</Button></Link>
+                            </>
+                        }
+
+
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
