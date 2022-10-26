@@ -4,12 +4,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import './Register.css'
+import './Register.css';
+import { FaGoogle } from 'react-icons/fa';
 
 const Register = () => {
     const [accepted, setAccepted] = useState(false)
     const [error, setError] = useState('')
-    const { createUser, updateUserProfile } = useContext(AuthContext)
+    const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext)
 
     const handleRegisterSubmit = e => {
         e.preventDefault()
@@ -39,6 +40,17 @@ const Register = () => {
             })
 
     }
+    const handleGoogleSignUp = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user;
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
+    }
 
     const handleUpdateProfile = (name, photoURL) => {
         const profile = {
@@ -51,6 +63,8 @@ const Register = () => {
     const handleAccepted = event => {
         setAccepted(event.target.checked)
     }
+
+
 
     return (
         <div className='bg-light container shadow-md mt-3 register'>
@@ -84,6 +98,12 @@ const Register = () => {
                     <Form.Control type="password" className='text-primary'
                         name='password' placeholder="Password" required />
                 </Form.Group>
+
+                <div onClick={handleGoogleSignUp} className='text-center bg-primary py-2 text-light'>
+                    <span className='me-2'><FaGoogle></FaGoogle></span>
+                    <span>Google Sign In</span>
+                </div>
+
                 <p><small>Are you already register <Link to='/login'>Login now</Link></small></p>
                 <Form.Group className="mb-3"
                     controlId="formBasicCheckbox">

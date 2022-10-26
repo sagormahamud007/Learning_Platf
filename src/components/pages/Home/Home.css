@@ -1,0 +1,30 @@
+.image {
+    height: 400px;
+    width: 100%;
+}
+
+.cap-style {
+    font-size: 40px;
+    color: rgb(5, 4, 10);
+    position: relative;
+}
+
+.cap-style::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 80px;
+    background-color: black;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.cap-style::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 80px;
+    background-color: black;
+    margin-left: -90px;
+    margin-top: 30px;
+}
