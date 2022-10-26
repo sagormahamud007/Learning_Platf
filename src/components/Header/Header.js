@@ -13,14 +13,15 @@ import { useState } from 'react';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
-    const [theme, setTheme] = useState('light')
+    const [theme, setTheme] = useState(true)
 
     const toggleBtn = () => {
-        if (theme === 'light') {
-            setTheme('dark')
+        if (theme === true) {
+            return setTheme('dark')
+
         }
         else {
-            setTheme('light')
+            return setTheme('light')
         }
     }
 
@@ -56,12 +57,13 @@ const Header = () => {
                             <Link className='text-decoration-none text-dark ms-3 me-3 mt-2' to='/*'>About</Link>
                         </Nav>
                         <button onClick={toggleBtn}>Click me</button>
+
                         <Link className='mr-3' to='/profile'>
                             {
                                 user?.photoURL ?
-
-                                    <Image style={{ height: '40px' }} roundedCircle
-                                        src={user?.photoURL}></Image>
+                                    <abbr title={user?.displayName}>
+                                        <Image style={{ height: '40px' }} roundedCircle
+                                            src={user?.photoURL}></Image></abbr>
                                     : <FaUser></FaUser>
                             }
                         </Link>
