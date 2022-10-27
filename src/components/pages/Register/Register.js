@@ -6,13 +6,14 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import './Register.css';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { GithubAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
     const [accepted, setAccepted] = useState(false)
     const [error, setError] = useState('')
     const { createUser, updateUserProfile, googleSignIn, githubLogin } = useContext(AuthContext)
     const provider = new GithubAuthProvider();
+    const prov = new GoogleAuthProvider()
 
     const handleRegisterSubmit = e => {
         e.preventDefault()
@@ -43,7 +44,7 @@ const Register = () => {
 
     }
     const handleGoogleSignUp = () => {
-        googleSignIn()
+        googleSignIn(prov)
             .then(result => {
                 const user = result.user;
             })

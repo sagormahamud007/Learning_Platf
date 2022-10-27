@@ -40,12 +40,13 @@ const AuthProvider = ({ children }) => {
     }
 
     //Google-sign in
-    const googleSignIn = () => {
+    const googleSignIn = (prov) => {
         setLoading(true)
-        return signInWithPopup(auth, provider)
+        return signInWithPopup(auth, prov)
     }
     //github login
     const githubLogin = (provider) => {
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
@@ -57,7 +58,6 @@ const AuthProvider = ({ children }) => {
         })
         return () => unSubscribe;
     }, [])
-
 
 
 
