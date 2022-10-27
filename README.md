@@ -2,11 +2,11 @@
 ## Project-Name : Education-Training-Center
 
 
-## . First I install the React Router DOM application, then I finish the React Router definition.
-## . I have used firebase authentication in this project, for that I have to go to firebase and install their application and do the login and register correctly as shown by them.
-## . Then I entered the fake data on the server site and displayed that data on my site using React Hook, then clicking on all that data will show the details.
-## . I have designed a 404 page, if someone writes something wrong in the URL, then that page will show., then I have designed the home page, then if someone goes to the details page, from there they can download the details page as PDF. , the name of the user will be displayed if the mouse is taken over the user's picture
-## . Applications used in this project include React Bootstrap Framework, React Router DOM, Firebase,Deploying this project to Firebase, along with that I have also deployed the server site
+# . ### First I install the React Router DOM application, then I finish the React Router definition.
+# . ###I have used firebase authentication in this project, for that I have to go to firebase and install their application and do the login and register correctly as shown by them.
+# . ### Then I entered the fake data on the server site and displayed that data on my site using React Hook, then clicking on all that data will show the details.
+# . ### I have designed a 404 page, if someone writes something wrong in the URL, then that page will show., then I have designed the home page, then if someone goes to the details page, from there they can download the details page as PDF. , the name of the user will be displayed if the mouse is taken over the user's picture
+# . ### Applications used in this project include React Bootstrap Framework, React Router DOM, Firebase,Deploying this project to Firebase, along with that I have also deployed the server site
 
 # Getting Started with Create React App
 
