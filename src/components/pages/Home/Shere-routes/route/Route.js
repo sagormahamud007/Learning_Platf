@@ -3,11 +3,12 @@ import { createBrowserRouter } from 'react-router-dom';
 import About from '../../../../About/About';
 import Blog from '../../../../Blog/Blog';
 import Main from '../../../../Layout/Main';
+import PrivateRoute from '../../../../PrivateRoute/PrivateRoute';
 import Terms from '../../../../Terms/Terms';
 import Category from '../../../Courses/Category';
+import CourseDetails from '../../../Courses/CourseDetails';
 import CourseInfo from '../../../Courses/CourseInfo';
 import Courses from '../../../Courses/Courses';
-import CoursesSummery from '../../../Courses/CoursesSummery';
 import Login from '../../../Login/Login';
 import Profile from '../../../Profile/Profile';
 import Register from '../../../Register/Register';
@@ -31,9 +32,9 @@ export const router = createBrowserRouter([
                 element: <CourseInfo></CourseInfo>
             },
             {
-                path: '/courses/:id',
-                element: <CoursesSummery></CoursesSummery>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singleCourse/${params.id}`)
+                path: '/corseSummary/:id',
+                element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://learning-server-two.vercel.app/singleCourse/${params.id}`)
             },
             {
                 path: '/blog',

@@ -1,6 +1,14 @@
 .image-info {
     height: 200px;
     border: 2px solid rgb(101, 134, 204);
-    width: 350px;
+    width: 360px;
     padding: 5px;
+}
+
+.btn-details {
+    background-color: blue;
+}
+
+.btn-details:hover {
+    background-color: rgb(218, 186, 5);
 }

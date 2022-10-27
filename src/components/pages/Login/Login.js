@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './Login.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
@@ -11,6 +11,9 @@ const Login = () => {
     const { logInUser, googleSignIn } = useContext(AuthContext)
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLoginSubmit = (e) => {
         e.preventDefault()
@@ -21,9 +24,8 @@ const Login = () => {
         logInUser(email, password)
             .then(result => {
                 const user = result.user;
-                form.reset('')
-                navigate('/')
-                console.log(user);
+                form.reset('');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 const errorCode = error.code;
@@ -64,7 +66,7 @@ const Login = () => {
                         <span>Google Sign In</span>
                     </div>
                     <p><small>Are you already register <Link to='/register'>Register now</Link></small></p>
-                    <Button className='px-5' variant="success" type="submit">
+                    <Button className='px-5' variant="primary" type="submit">
                         Login
                     </Button>
                 </Form>

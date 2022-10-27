@@ -1,0 +1,9 @@
+.summaryDetails:hover {
+    box-shadow: 4px 6px 8px 10px gray;
+    transition: 0.8s;
+}
+
+.summaryDetails {
+    background-color: rgb(182, 179, 2);
+    height: 400px;
+}

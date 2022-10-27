@@ -5,12 +5,14 @@ import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import './Register.css';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { GithubAuthProvider } from 'firebase/auth';
 
 const Register = () => {
     const [accepted, setAccepted] = useState(false)
     const [error, setError] = useState('')
-    const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext)
+    const { createUser, updateUserProfile, googleSignIn, githubLogin } = useContext(AuthContext)
+    const provider = new GithubAuthProvider();
 
     const handleRegisterSubmit = e => {
         e.preventDefault()
@@ -63,7 +65,18 @@ const Register = () => {
     const handleAccepted = event => {
         setAccepted(event.target.checked)
     }
-
+    const handleGithubLogin = () => {
+        githubLogin(provider)
+            .then(result => {
+                const credential = GithubAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+            })
+            .catch(error => {
+                const errorCode = error.code;
+                const errorMessage = error.massage;
+            })
+    }
 
 
     return (
@@ -102,6 +115,11 @@ const Register = () => {
                 <div onClick={handleGoogleSignUp} className='text-center bg-primary py-2 text-light'>
                     <span className='me-2'><FaGoogle></FaGoogle></span>
                     <span>Google Sign In</span>
+                </div>
+
+                <div onClick={handleGithubLogin} className='text-center bg-primary py-2 text-light mt-3'>
+                    <span className='me-2'><FaGithub></FaGithub></span>
+                    <span>GitHub Sign In</span>
                 </div>
 
                 <p><small>Are you already register <Link to='/login'>Login now</Link></small></p>

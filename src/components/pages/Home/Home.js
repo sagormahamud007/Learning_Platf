@@ -6,7 +6,7 @@ import { FaArtstation, FaAsterisk, FaBook, FaCss3, FaDesktop, FaGraduationCap, F
 
 const Home = () => {
     return (
-        <div className='home-container'>
+        <div className='home-container overflow-hidden'>
             <Carousel fade>
                 <Carousel.Item>
                     <img
@@ -43,7 +43,7 @@ const Home = () => {
                     <Carousel.Caption>
                         <h1 className='text-Light fw-bold'>APPLY ONLINE TRAINING COURSES</h1>
                         <p className='text-light'>These instructors have expertise in conveying knowledge, and even "hard to grasp" concepts, through video instruction. Through the combination of excellent instruction and immediate feedback, students are quickly able to start experiencing success within their coursework.</p>
-                        <Link to='/course'>  <button className='border-0 py-2 px-5 rounded'>Show course</button></Link>
+                        <Link to='/course'>  <button className='border-0 py-2 px-5 rounded '>Show course</button></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
@@ -56,42 +56,42 @@ const Home = () => {
             <div className='container mt-5'>
                 <div className="row">
                     <div className="col-md-4 text-center ">
-                        <div className='border mb-5 p-2'>
+                        <div className='border mb-5 p-2 details-box' data-aos="fade-right">
                             <span className='bg-primary fs-2 text-light px-4  py-2  rounded'><FaBook></FaBook></span>
                             <h4 className='mt-4'>Certified Courses</h4>
                             <p>Certificate or PDF you must study and complete all modules and score 80% or more in each of the course assessments.</p>
                         </div>
                     </div>
                     <div className="col-md-4 text-center">
-                        <div className='border mb-5 p-2'>
+                        <div className='border mb-5 p-2 details-box' data-aos="fade-left">
                             <span className='bg-primary fs-2 text-light px-4  py-2  rounded'><FaLaptop></FaLaptop> </span>
                             <h4 className='mt-4'>Technology & Software</h4>
                             <p>Our school uses the lastest technology & Software to service students and we have had 10 experience years.</p>
                         </div>
                     </div>
                     <div className="col-md-4 text-center">
-                        <div className='border mb-5 p-2'>
+                        <div className='border mb-5 p-2 details-box' data-aos="fade-right">
                             <span className='bg-primary fs-2 text-light px-4  py-2   rounded'><FaDesktop></FaDesktop></span>
                             <h4 className='mt-4'>Web Design</h4>
                             <p>We have had 10 experience years for design Website and web development – HTML5, CSS3 and JavaScript.</p>
                         </div>
                     </div>
                     <div className="col-md-4 text-center">
-                        <div className='border mb-5 p-2'>
+                        <div className='border mb-5 p-2 details-box' data-aos="fade-left">
                             <span className='bg-primary fs-2 text-light px-4  py-2  rounded'><FaArtstation></FaArtstation></span>
                             <h4 className='mt-4'>Creative Arts & Media</h4>
                             <p>Our have had 10 experience years and always creates friendly Arts & Media to make customers satisfied.</p>
                         </div>
                     </div>
                     <div className="col-md-4 text-center">
-                        <div className='border mb-5 p-2'>
+                        <div className='border mb-5 p-2 details-box' data-aos="fade-right">
                             <span className='bg-primary fs-2 text-light px-4  py-2  rounded'><FaHtml5></FaHtml5></span>
                             <h4 className='mt-4'>HTML / CSS</h4>
                             <p>In this tutorial we’re going to learn from scratch 3 most popular items in front end web development – HTML5, CSS3.</p>
                         </div>
                     </div>
                     <div className="col-md-4 text-center">
-                        <div className='border mb-5 p-2'>
+                        <div className='border mb-5 p-2 details-box' data-aos="fade-left">
                             <span className='bg-primary fs-2 text-light px-4  py-2 rounded'><FaShoppingBag></FaShoppingBag></span>
                             <h4 className='mt-4'>Business and Management</h4>
                             <p>We are proud of Management department to carry out large business and we have had 15 experience years for business.</p>

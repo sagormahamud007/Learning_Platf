@@ -6,7 +6,7 @@ const SingleCategory = ({ category }) => {
     const { name, image, price, review, description, id } = category;
     return (
         <div>
-            <div className='border'>
+            <div className='border' data-aos="fade-right">
                 <img className='image-info' src={image} alt="" />
                 <div className='ms-2 mt-3'>
                     <h4>{name}</h4>
@@ -15,7 +15,7 @@ const SingleCategory = ({ category }) => {
                     <p>Review {review}</p>
                 </div>
                 <div className=''>
-                    <Link to={`/courses/:${id}`}><button className='w-100 border-0 py-2 bg-primary text-light'>Show Details</button></Link>
+                    <Link to={`/corseSummary/${id}`}><button className='w-100 border-0 py-2  text-light btn-details'>Get premium access</button></Link>
                 </div>
             </div>
         </div>
