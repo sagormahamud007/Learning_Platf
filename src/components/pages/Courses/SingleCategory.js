@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './SingleCategory.css'
 
@@ -11,10 +12,10 @@ const SingleCategory = ({ category }) => {
                 <div className='ms-2 mt-3'>
                     <h4>{name}</h4>
                     <p>{description}</p>
-                    <p>Price ${price}</p>
-                    <p>Review {review}</p>
+                    <p>Price : ${price}</p>
+                    <p>Review : {review}<FaStar className='text-warning ms-2'></FaStar></p>
                 </div>
-                <div className=''>
+                <div>
                     <Link to={`/corseSummary/${id}`}><button className='w-100 border-0 py-2  text-light btn-details'>Get premium access</button></Link>
                 </div>
             </div>
